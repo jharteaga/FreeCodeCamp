@@ -1,0 +1,68 @@
+#main {
+    background-color: rgb(235, 232, 232);
+    border-radius: 0.9%;
+    position: absolute;
+    margin: 20px 15px 0px 15px;
+}
+
+#title {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2em;
+    text-align: center;
+}
+
+#subtitle {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 23px;
+}
+
+#img-div {
+    text-align: center;
+    background-color: whitesmoke;
+    margin: 15px;
+    padding: 50px 0px 10px 0px;
+    border-radius: 1%;
+}
+
+#image {
+    border-radius: 3%;
+    max-width: 100%;
+    display: block;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+}
+
+#img-caption {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+#tribute-info {
+    text-align: center;
+}
+
+#facts{
+    text-align: left;
+    padding: 0px 25% 0px 25%;
+    font-size: 20px;
+}
+
+li {
+    padding: 2px;
+}
+
+#quote {
+    text-align: justify;
+    padding: 0px 25% 0px 25%;
+    font-size: 20px;
+}
+
+#reference {
+    padding: 20px;
+    color: rgb(73, 73, 73);
+    font-weight: bold;
+    font-size: 20px;
+}
