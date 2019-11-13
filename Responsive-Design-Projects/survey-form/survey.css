@@ -1,0 +1,80 @@
+body {
+    background-image: url("https://wallpapersmug.com/download/1920x1080/50e470/gradient-blur.jpg");
+    background-size: cover;
+    font-family: 'Roboto Slab', serif;
+}
+
+#container {
+    width: 100%;
+  /*   margin: 3.125rem auto 0 auto; */
+    margin: auto;
+  }
+
+@media (min-width: 600px){
+    #container {
+        max-width: 600px;
+    }
+}
+
+#title {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+#description {
+    color: white;
+    text-align: center;
+}
+
+#survey-form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 0.5%;
+    background: rgba(69, 93, 231, 0.3);
+    color: white;
+    font-size: 17px;
+}
+
+#name, #email, #number {
+    width: 97%;
+}
+
+#comments {
+    width: 100%;
+}
+
+#number {
+    height: 10px;
+}
+
+#dropdown{
+    height: 30px;
+    width: 100%;
+}
+
+#submit {
+    width: 100%;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    height: 50px;
+}
+
+input[type="radio"]{
+    margin-bottom: 6px;
+}
+
+input[type="checkbox"]{
+    margin-bottom: 7px;
+}
+
+input, select, textarea{
+    margin-top: 6px;
+}
+
+
+
+
+
