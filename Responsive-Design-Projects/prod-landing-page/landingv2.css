@@ -1,0 +1,203 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/******************************************************/
+/*                    HEADER                          */
+/******************************************************/
+
+#header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    position: fixed;
+    background-color: black;
+}
+
+#logo {
+    margin-left: 2%;
+    margin-top: 5%;
+}
+
+#header-img {
+    width: 300px;
+    height: 150px;
+}
+
+#nav-bar {
+    margin-right: 5%;
+    word-spacing: 2em;
+    /* text-transform: uppercase; */
+}
+
+#nav-bar ul li {
+    display: inline-block;
+    list-style: none;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(243, 235, 117);
+}
+
+.nav-link:hover{
+    color: rgb(174, 184, 174);
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+
+/******************************************************/
+/*                    MAIN                            */
+/******************************************************/
+
+.content {
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-title {
+    font-size: 40px;
+    color: rgb(219, 206, 21);
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.banner-container {
+    background-image: url('https://img.wallpapersafari.com/desktop/1920/1080/12/58/XuqM4T.jpg');
+    width: 100%;
+    height: 100vh;
+}
+
+.section-container {
+    padding-top: 5%;
+    padding-bottom: 0%;
+    background-color: black;
+    width: 100%;
+}
+
+#features-container {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#left-module, #right-module{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-style: solid;
+    border-color: red;
+    border-radius: 5%;
+    padding: 50px;
+    margin: 0 1%;
+}
+
+.feature{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.name{
+    color: rgb(148, 147, 137);
+    font-style: oblique;
+    margin: 0 20px;
+}
+
+.check{
+    width: 50px;
+    height: 60px;
+}
+
+#contact{
+    padding-top: 0%;
+    height: 10%;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.email-container {
+    width: 100%;
+}
+
+.submit-container {
+    width: 100%;
+    text-align: center;
+}
+
+#email {
+    width: 500px;
+    height: 40px;
+    text-align: center;
+}
+
+#submit {
+    width: 300px;
+    height: 40px;
+    background-color: rgb(180, 180, 35);
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+/******************************************************/
+/*                    FOOTER                          */
+/******************************************************/
+
+#footer{
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#footer div h4{
+    color: rgb(219, 206, 21);
+    font-size: 18px;
+    font-weight: 500;
+    font-style: oblique;
+    text-align: center;
+}
+
+#copyright {
+    width: 15px;
+    height: 15px;
+}
