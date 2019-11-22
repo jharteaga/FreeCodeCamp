@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="tech.css"/>
+    <title>:: Technical Documentation Page ::</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav id="navbar">
+            <header id="title">Routing EIPs with Apache Camel</header>
+            <ul id="topics">
+                <li><a href="#Introduction" class="nav-link">Introduction</a></li>
+                <li><a href="#What_is_Apache_Camel?" class="nav-link">What is Apache Camel?</a></li>
+                <li><a href="#What_is_an_EIP?" class="nav-link">What is an EIP?</a></li>
+                <li><a href="#Types_of_EIPs" class="nav-link">Types of EIPs</a></li>
+                <li><a href="#Message_Routing" class="nav-link">Message Routing</a></li>
+                <li><a href="#Content_Based_Router" class="nav-link">Content Based Router</a></li>
+                <li><a href="#Message_Filter" class="nav-link">Message Filter</a></li>
+                <li><a href="#Splitter" class="nav-link">Splitter</a></li>
+                <li><a href="#Aggregator" class="nav-link">Aggregator</a></li>
+                <li><a href="#Multicast" class="nav-link">Multicast</a></li>
+                <li><a href="#Recipient_List" class="nav-link">Recipient List</a></li>
+            </ul>
+        </nav>
+        <main id="main-doc">
+            <section class="main-section" id="Introduction">
+                <header>Introduction</header>
+                <p>Integration is a hard problem. To help deal with the complexity of integration problems the Enterprise Integration Patterns (EIP) have become the standard way to describe, document and implement complex integration problems. Hohpe & Woolf's book the Enterprise Integration Patterns has become the bible in the integration space - essential reading for any integration professional.</p>
+                
+            </section>
+            <section class="main-section" id="What_is_Apache_Camel?">
+                <header>What is Apache Camel?</header>
+                <p>Apache Camel ™ is a versatile open-source integration framework based on known Enterprise Integration Patterns.</p>
+                <p>Camel empowers you to define routing and mediation rules in a variety of domain-specific languages, including a Java-based Fluent API, Spring or Blueprint XML Configuration files. This means you get smart completion of routing rules in your IDE, whether in a Java or XML editor.</p>
+                <p>Apache Camel uses URIs to work directly with any kind of Transport or messaging model such as HTTP, ActiveMQ, JMS, JBI, SCA, MINA or CXF, as well as pluggable Components and Data Format options. Apache Camel is a small library with minimal dependencies for easy embedding in any Java application. Apache Camel lets you work with the same API regardless which kind of Transport is used — so learn the API once and you can interact with all the Components provided out-of-box.</p>
+                <p>Apache Camel provides support for Bean Binding and seamless integration with popular frameworks such as CDI, Spring and Blueprint. Camel also has extensive support for unit testing your routes.</p>
+                <p>The following projects can leverage Apache Camel as a routing and mediation engine:</p>
+                <ul>
+                    <li>Apache Servicemix</li>
+                    <li>Apache ActiveMQ</li>
+                    <li>Apache CXF</li>
+                    <li>Apache Karaf</li>
+                    <li>Apache MINA</li>
+                </ul>
+                
+            </section>
+            <section class="main-section" id="What_is_an_EIP?">
+                <header>What is an EIP?</header>
+                <p>Enterprise integration patterns (EIP) is a catalog of design patterns for developing systems to integrate new and existing software in a business environment. The book, whose full title is Enterprise Integration Patterns: Designing, Building, and Deploying Messaging Solutions, was written by Gregor Hohpe and Bobby Woolf and published in 2003. EIP provides 65 design patterns and includes an icon-based pattern language sometimes called GregorGrams.</p>
+                <p>A design pattern is a general solution to a design problem that recurs repeatedly in many projects. A pattern describes the problem and its proposed solution and discuss any other important factors. EIP focuses on messaging patterns for enterprise application integration (EAI). Messaging makes it easier for programs to communicate across different programming environments (languages, compilers, and operating systems) because the only thing that each environment needs to understand is the common messaging format and protocol.</p>
+                <p>Messaging patterns define the means by which different elements in a message-passing system connect and communicate to enable interaction among objects within programs and among various types of software -- which may be written in different languages and exist on different platforms in multiple locations.</p>
+                
+            </section>
+            <section class="main-section" id="Types_of_EIPs">
+                <header>Types of EIPs</header>
+                <p>Camel supports most of the Enterprise Integration Patterns from the excellent book by Gregor Hohpe and Bobby Woolf, which are the following:</p>
+                <ul>
+                    <li>Messaging Systems</li>
+                    <li>Messaging Channels</li>
+                    <li>Message Construction</li>
+                    <li>Message Routing</li>
+                    <li>Message Transformation</li>
+                    <li>Messaging Endpoints</li>
+                    <li>System Management</li>
+                </ul>
+
+                <p>Nevertheless, during this technical documentation we are going to focus only in Enteprise Integration Patterns for Message Routing</p>
+                
+            </section>
+            <section class="main-section" id="Message_Routing">
+                <header>Message Routing</header>
+                <p>A message router is a basic architectural pattern of a messaging system used fundamentally for connecting different message channels. A router consumes a message from one message channel and republishes it to a different channel based on specified conditions.</p>
+                <p>This documentation introduces various types of routers and how each of them can be simulated using Apache Camel.</p>
+                <p>List of Messaging Routers EIP:</p>
+                <ul>
+                    <li>Content-Based Router</li>
+                    <li>Message Filter</li>
+                    <li>Splitter</li>
+                    <li>Aggregator</li>
+                    <li>Multicast</li>
+                    <li>Recipient List</li>
+                </ul>
+                
+            </section>
+            <section class="main-section" id="Content_Based_Router">
+                <header>Content Based Router</header>
+                <p>The Content-Based Router (CBR) reads the content of a message and routes it to a specific recipient based on its content. This approach is useful when an implementation of a specific logical function is distributed across multiple physical systems.</p>
+                <p>The following diagram depicts the Content-Based Router's behavior where the router performs a logical function (e.g., inventory check). It receives a request message (new order), reads it, and routes the request to one of the two recipients according to the message's content.</p>
+                <img src="https://docs.wso2.com/download/attachments/58462198/ContentBasedRouter.png?version=1&modificationDate=1354691924000&api=v2">
+
+                <h4>Apache Camel Use Case - Java DSL</h4>
+                <code data-lang="java">RouteBuilder builder = new RouteBuilder() {<br>
+                    &nbsp;public void configure() {<br>
+                        &nbsp;&nbsp;errorHandler(deadLetterChannel("mock:error"));<br>
+                            <br>
+                            &nbsp;&nbsp;from("direct:a")<br>
+                            &nbsp;&nbsp;&nbsp;.choice()<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;.when(header("foo").isEqualTo("bar"))<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.to("direct:b")<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;.when(header("foo").isEqualTo("cheese"))<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.to("direct:c")<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;.otherwise()<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.to("direct:d");<br>
+                            &nbsp;}<br>
+                    };<br></code>
+                    <h4>Apache Camel Use Case - Spring XML</h4>
+                    <code>&lt;camelContext errorHandlerRef=&quot;errorHandler&quot; xmlns=&quot;http://camel.apache.org/schema/spring&quot;&gt;<br>
+                        &nbsp;&lt;route&gt;<br>
+                        &nbsp;&nbsp;&lt;from uri=&quot;direct:a&quot;/&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&lt;choice&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;when&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xpath&gt;$foo = &apos;bar&apos;&lt;/xpath&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;to uri=&quot;direct:b&quot;/&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/when&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;when&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xpath&gt;$foo = &apos;cheese&apos;&lt;/xpath&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;to uri=&quot;direct:c&quot;/&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/when&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;otherwise&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;to uri=&quot;direct:d&quot;/&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/otherwise&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&lt;/choice&gt;<br>
+                        &nbsp;&lt;/route&gt;<br>
+                        &lt;/camelContext&gt;<br></code>
+                
+            </section>
+            <section class="main-section" id="Message_Filter">
+                <header>Message Filter</header>
+                <p>The Message Filter from the EIP patterns allows you to filter messages</p>
+                <img src="https://camel.apache.org/manual/latest/_images/eip/MessageFilter.gif">
+                <h4>Apache Camel Use Case - Java DSL</h4>
+                <code>from("direct:a")
+                    .filter(simple("${header.foo} == 'bar'"))
+                        .to("direct:b");</code>
+                <h4>Apache Camel Use Case - XML Spring</h4>
+                <code>&lt;bean id=&quot;myBean&quot; class=&quot;com.foo.MyBean&quot;/&gt;
+
+                    &lt;camelContext xmlns=&quot;http://camel.apache.org/schema/spring&quot;&gt;
+                        &lt;route&gt;
+                            &lt;from uri=&quot;direct:a&quot;/&gt;
+                            &lt;filter&gt;
+                                &lt;method ref=&quot;myBean&quot; method=&quot;isGoldCustomer&quot;/&gt;
+                                &lt;to uri=&quot;direct:b&quot;/&gt;
+                            &lt;/filter&gt;
+                        &lt;/route&gt;
+                    &lt;/camelContext&gt;</code>
+                
+            </section>
+            <section class="main-section" id="Splitter">
+                <header>Splitter</header>
+                <p>The Splitter from the EIP patterns allows you split a message into a number of pieces and process them individually.</p>
+                <img src="https://camel.apache.org/manual/latest/_images/eip/Sequencer.gif">
+                <p>The following example shows how to take a request from the direct:a endpoint the split it into pieces using an Expression, then forward each piece to direct:b</p>
+                <h4>Apache Camel Use Case - Java DSL</h4>
+                <code>from("direct:a")
+                    .split(body(String.class).tokenize("\n"))
+                        .to("direct:b");</code>
+                <h4>Apache Camel Use Case - Spring XML</h4>
+                <code>&lt;camelContext xmlns=&quot;http://camel.apache.org/schema/spring&quot;&gt;
+                    &lt;route&gt;
+                        &lt;from uri=&quot;activemq:my.queue&quot;/&gt;
+                        &lt;split&gt;
+                            &lt;xpath&gt;//foo/bar&lt;/xpath&gt;
+                            &lt;to uri=&quot;file://some/directory&quot;/&gt;
+                        &lt;/split&gt;
+                    &lt;/route&gt;
+                &lt;/camelContext&gt;</code>
+                
+            </section>
+            <section class="main-section" id="Aggregator">
+                <header>Aggregator</header>
+                <p>he Aggregator from the EIP patterns allows you to combine a number of messages together into a single message.</p>
+                <img src="https://camel.apache.org/manual/latest/_images/eip/Aggregator.gif">
+                <p>A correlation Expression is used to determine the messages which should be aggregated together. If you want to aggregate all messages into a single message, just use a constant expression. An AggregationStrategy is used to combine all the message exchanges for a single correlation key into a single message exchange.</p>
+                <h4>Apache Camel Use Case - Java DSL</h4>
+                <code>private AggregateController controller = new DefaultAggregateController();
+
+                    from("direct:start")
+                       .aggregate(header("id"), new MyAggregationStrategy())
+                          .completionSize(10).id("myAggregator")
+                          .aggregateController(controller)
+                          .to("mock:aggregated");</code>
+                <h4>Apache Camel Use Case - Spring XML</h4>
+                <code>&lt;bean id=&quot;myController&quot; <br>class=&quot;org.apache.camel.processor.aggregate.<br>DefaultAggregateController&quot;/&gt;
+
+                    &lt;camelContext xmlns=&quot;http://camel.apache.org/schema/spring&quot;&gt;
+                          &lt;route&gt;
+                              &lt;from uri=&quot;direct:start&quot;/&gt;
+                              &lt;aggregate strategyRef=&quot;myAppender&quot; completionSize=&quot;10&quot;
+                                         aggregateControllerRef=&quot;myController&quot;&gt;
+                                  &lt;correlationExpression&gt;
+                                      &lt;header&gt;id&lt;/header&gt;
+                                  &lt;/correlationExpression&gt;
+                                  &lt;to uri=&quot;mock:result&quot;/&gt;
+                              &lt;/aggregate&gt;
+                          &lt;/route&gt;
+                      &lt;/camelContext&gt;</code>
+                
+            </section>
+            <section class="main-section" id="Multicast">
+                <header>Multicast</header>
+                <p>The Multicast EIP allows to route the same message to a number of endpoints and process them in a different way. The main difference between the Multicast and Splitter is that Splitter will split the message into several pieces but the Multicast will not modify the request message.</p>
+                <img src="https://static.packt-cdn.com/products/9781783283477/graphics/3477_10_01.jpg">
+                <h4>Apache Camel Use Case - Java DSL</h4>
+                <code>from("direct:start")
+                    .multicast(new MyAggregationStrategy())
+                    .parallelProcessing().timeout(500).to("direct:a", "direct:b", "direct:c")
+                    .end()
+                    .to("mock:result");</code>
+                <h4>Apache Camel Use Case - Spring XML</h4>
+                <code>&lt;route&gt;
+                    &lt;from uri=&quot;direct:start&quot;/&gt;
+                    &lt;multicast stopOnException=&quot;true&quot;&gt;
+                        &lt;to uri=&quot;direct:foo&quot;/&gt;
+                        &lt;to uri=&quot;direct:bar&quot;/&gt;
+                        &lt;to uri=&quot;direct:baz&quot;/&gt;
+                    &lt;/multicast&gt;
+                    &lt;to uri=&quot;mock:result&quot;/&gt;
+                &lt;/route&gt;
+        
+                &lt;route&gt;
+                    &lt;from uri=&quot;direct:foo&quot;/&gt;
+                    &lt;to uri=&quot;mock:foo&quot;/&gt;
+                &lt;/route&gt;
+        
+                &lt;route&gt;
+                    &lt;from uri=&quot;direct:bar&quot;/&gt;
+                    &lt;process ref=&quot;myProcessor&quot;/&gt;
+                    &lt;to uri=&quot;mock:bar&quot;/&gt;
+                &lt;/route&gt;
+        
+                &lt;route&gt;
+                    &lt;from uri=&quot;direct:baz&quot;/&gt;
+                    &lt;to uri=&quot;mock:baz&quot;/&gt;
+                &lt;/route&gt;</code>
+                
+            </section>
+            <section class="main-section" id="Recipient_List">
+                <header>Recipient List</header>
+                <p>he Recipient List from the EIP patterns allows you to route messages to a number of dynamically specified recipients.</p>
+                <img src="https://camel.apache.org/manual/latest/_images/eip/RecipientList.gif">
+                <h4>Apache Camel Use Case - Java DSL</h4>
+                <code>from("jms:queue:a")
+                    .recipientList(header("foo"));</code>
+                <h4>Apache Camel Use Case - Spring XML</h4>
+                <code>&lt;route&gt;
+                    &lt;from uri=&quot;direct:a&quot;/&gt;
+                    &lt;!-- use semi-colon as a delimiter for String based values --&gt;
+                    &lt;recipientList delimiter=&quot;;&quot;&gt;
+                      &lt;header&gt;myHeader&lt;/header&gt;
+                    &lt;/recipientList&gt;
+                  &lt;/route&gt;</code>
+            </section>
+        </main>
+    </div>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+</html>
